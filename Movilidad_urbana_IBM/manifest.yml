@@ -1,4 +1,4 @@
 ---
 applications:
- - name: Movilidad urbana
+ - name: MovilidadUrbana
    random-route: true
