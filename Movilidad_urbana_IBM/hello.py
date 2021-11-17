@@ -9,7 +9,7 @@ port = int(os.getenv('PORT', 8000))
 
 @app.route('/')
 def root():
-    return jsonify([{"Dentro de todo esto deben estar los puntos que vamos a mandar"}])
+    return jsonify([{"message":"Dentro de todo esto deben estar los puntos que vamos a mandar"}])
 
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', port=port, debug=True)
