@@ -15,7 +15,6 @@ import pandas as pd
 class Control(Agent):
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
-        #para cuando truene
         self.model = model
         
         self.contar()
@@ -75,9 +74,11 @@ class Semaforo(Agent):
         super().__init__(unique_id, model)
         
         self.light = False
+
 class Coche(Agent):
     def __init__(self, unique_id, model, x, y, orientation):
         super().__init__(unique_id, model)
+        self.model = model
         
         # Posición del coche
         self.position = np.array((x,y), dtype=np.float64)
@@ -142,19 +143,19 @@ class Coche(Agent):
     
     def stop(self):
         if self.orientation == 'right-left' and self.position.flatten()[0] == 3: 
-            if model.este.light == False:
+            if self.model.este.light == False:
                 return True
 
         elif self.orientation == 'up-down' and self.position.flatten()[1] == 3:
-            if model.norte.light == False:
+            if self.model.norte.light == False:
                 return True
 
         elif self.orientation == 'left-right' and self.position.flatten()[0] == -3:
-            if model.oeste.light == False:
+            if self.model.oeste.light == False:
                 return True
 
         elif self.orientation == 'down-up' and self.position.flatten()[1] == -3:
-            if model.sur.light == False:
+            if self.model.sur.light == False:
                 return True
         
         if self.check_cars() == True:
@@ -163,7 +164,7 @@ class Coche(Agent):
         return False
     
     def check_cars(self):
-        for agent in model.schedule.agents:
+        for agent in self.model.schedule.agents:
 
             if self.orientation == 'right-left':
                 # Carril 1
