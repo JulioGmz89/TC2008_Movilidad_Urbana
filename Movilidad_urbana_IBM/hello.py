@@ -23,12 +23,7 @@ N = 20
 
 model = CarModel(N)
 
-for i in range(MAX_GENERATIONS):
-    model.step()
 
-var = model.datacollector.get_model_vars_dataframe()
-
-print(var.iloc[0][0])
 """"
 app = Flask(__name__, static_url_path='')
 
