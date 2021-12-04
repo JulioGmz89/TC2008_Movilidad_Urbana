@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/CyberPunk_City_VR_Mobile/Scenes/Neon_City.unity
+    guid: d6d0c06e9cfec8f47bc01a13503589fa
   m_configObjects: {}
